@@ -13,6 +13,7 @@ def index(request):
     pybo 목록 출력
     '''
     # 입력인자
+    3/0
     page = request.GET.get('page', '1')
     kw = request.GET.get('kw', '')
     so = request.GET.get('so', 'recent')
