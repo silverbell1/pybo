@@ -150,7 +150,7 @@ LOGGING = {
         },
         'standard': {
             'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
-        }
+        },
     },
     'handlers': {
         'console': {
@@ -180,7 +180,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'mail_admins' 'file'],
+            'handlers': ['console', 'mail_admins', 'file'],
             'level': 'INFO',
         },
         'django.server': {
