@@ -8,12 +8,15 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q, Count
 
+import logging
+logger = logging.getLogger('pybo')
+
 def index(request):
     '''
     pybo 목록 출력
     '''
     # 입력인자
-    3/0
+    logger.info("INFO 레벨로 출력")
     page = request.GET.get('page', '1')
     kw = request.GET.get('kw', '')
     so = request.GET.get('so', 'recent')
