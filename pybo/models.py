@@ -11,6 +11,7 @@ class Question(models.Model):
     modify_date = models.DateTimeField(null=True, blank=True)
     voter = models.ManyToManyField(User,
                                    related_name='voter_question')
+    imgfile = models.ImageField(null=True, blank=True)
 
 
 class Answer(models.Model):
@@ -22,6 +23,7 @@ class Answer(models.Model):
     modify_date = models.DateTimeField(null=True, blank=True)
     voter = models.ManyToManyField(User,
                                    related_name='voter_answer')
+    imgfile = models.ImageField(null=True, blank=True)
 
 
 class Comment(models.Model):

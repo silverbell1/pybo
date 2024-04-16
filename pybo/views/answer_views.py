@@ -9,7 +9,7 @@ from django.contrib import messages
 
 
 @login_required(login_url='common:login')
-def answer_create(request, question_id):
+def answer_create(request, question_id, yolo_predict_file, yolo_result):
     """
     pybo 답변등록
     """
@@ -18,6 +18,8 @@ def answer_create(request, question_id):
         form = AnswerForm(request.POST)
         if form.is_valid():
             answer = form.save(commit=False)
+            answer.content = yolo_result
+            answer.imgfile = yolo_predict_file
             answer.author = request.user
             answer.create_date = timezone.now()
             answer.question = question
@@ -26,7 +28,7 @@ def answer_create(request, question_id):
                 resolve_url('pybo:detail', question_id=question.id), answer.id))
     else:
         form = AnswerForm()
-    context = {'question':question, 'form': form}
+    context = {'question': question, 'form': form}
     return render(request, 'pybo/question_detail.html', context)
 
 

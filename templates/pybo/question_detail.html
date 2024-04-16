@@ -24,6 +24,12 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-text">{{ question.content|mark }}</div>
+                    <div>
+                        {% if question.imgfile == '' or question.imgfile == null %}
+                        {% else %}
+                            <tr><td colspan="2"><img src="{{ question.imgfile.url }}" style="max-width:400px"></td></tr>
+                        {% endif %}
+                    </div><br>
                     <div class="d-flex justify-content-end">
                         {% if question.modify_date %}
                         <div class="badge badge-light p-2 text-left mx-3">
@@ -87,9 +93,11 @@
             class="recommend btn btn-sm btn-secondary btn-block my-1">추천</a>
         </div>
         <div class="col-11">
-            <div class="card my-3">
+            <div class="card">
                 <div class="card-body">
                     <div class="card-text">{{ answer.content|mark }}</div>
+                    <img src="{{ answer.imgfile.url }}" width="500">
+                    <!--div class="card-text">{{ yolo_answer.imgfile.path }}</div-->
                     <div class="d-flex justify-content-end">
                         {% if answer.modify_date %}
                         <div class="badge badge-light p-2 text-left mx-3">
